@@ -1,24 +1,33 @@
 colors = {
-    'white':  0,
-    'red':    1,
-    'green':  2,
-    'yellow': 3,
-    'blue':   4,
-    'purple': 5,
-    'cyan':   6,
-    'gray':   7
-    }
+    'black':         30,
+    'red':           31,
+    'green':         32,
+    'yellow':        33,
+    'blue':          34,
+    'magenta':       35,
+    'cyan':          36,
+    'gray':          37,
+    'dark gray':     90,
+    'ligth red':     91,
+    'ligth green':   92,
+    'ligth yellow':  93,
+    'ligth blue':    94,
+    'ligth magenta': 95,
+    'ligth cyan':    96,
+    'white':         97
+}
 styles = {
     'bold':      1,
     'underline': 4,
     'negative':  7
 }
+
 def cprint(string, c='', bgc='', style=0,end='\n'):
     end = '\033[m'+end
     if c != '':
-        c= ('3{}'.format(colors[c]))
+        c= colors[c]
     if bgc!= '':
-        bgc= ('4{}'.format(colors[bgc]))
+        bgc= colors[bgc]+10
     if style != 0:
         style = styles[style]
     if bgc=='':
@@ -28,9 +37,9 @@ def cprint(string, c='', bgc='', style=0,end='\n'):
 
 def creturn (string, c='', bgc='', style=0,end='\033[m'):
     if c != '':
-        c= ('3{}'.format(colors[c]))
+        c= colors[c]
     if bgc!= '':
-        bgc= ('4{}'.format(colors[bgc]))
+        bgc= colors[bgc]+10
     if style != 0:
         style = styles[style]
     if bgc=='':
